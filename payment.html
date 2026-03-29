@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment Script Malware Premium</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+body {
+  background: linear-gradient(160deg,#020617,#0f172a,#020617);
+  color:#fff;
+}
+.pricing-card {
+  background:#020617;
+  border-radius:20px;
+  padding:20px;
+  transition:0.3s;
+  border:1px solid #1e293b;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100%;
+}
+.pricing-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+.title { font-size:18px; font-weight:bold; min-height:24px; }
+.price { font-size:18px; font-weight:bold; color:#22c55e; min-height:32px; }
+.btn-buy { border-radius:12px; font-weight:bold; margin-top:auto; }
+
+/* Tombol Back full-width & konsisten */
+.btn-back {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  width: 100%;          /* full width */
+  max-width: 460px;     /* sama dengan card */
+  transition: 0.2s;
+  margin-top: 2rem;     /* jarak dari daftar paket */
+}
+
+.btn-back:hover {
+  background-color: #22c55e;
+  color: #020617;
+  border-color: #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container py-5 d-flex flex-column align-items-center">
+<div class="text-center mb-5">
+  <h3 class="fw-bold">List Harga</h3>
+  <h4 class="fw-bold">Script Malware</h4>
+</div>
+
+<div class="row g-4 w-100">
+
+<!-- Paket list -->
+<script>
+const packages = [
+  {name:"100 GB", price:249000},
+  {name:"300 GB", price:499000},
+  {name:"500 GB", price:799000},
+  {name:"900 GB", price:1199000},
+  {name:"1200 GB", price:1499000},
+  {name:"1800 GB", price:1999000}
+];
+
+packages.forEach(pkg => {
+  document.write(`
+    <div class="col-6 col-md-4">
+      <div class="pricing-card text-center h-100">
+        <div>
+          <div class="title">${pkg.name}</div>
+          <div class="price my-2">Rp${pkg.price.toLocaleString("id-ID")}</div>
+        </div>
+        <a href="checkout.html?package=${encodeURIComponent(pkg.name)}&price=${pkg.price}" 
+           class="btn btn-success w-100 btn-buy">
+          BELI
+        </a>
+      </div>
+    </div>
+  `);
+});
+</script>
+
+</div>
+
+<!-- Tombol Back full-width tepat di bawah daftar paket -->
+<a href="index.html" class="btn btn-outline-light btn-back">
+  <i class="bi bi-arrow-left"></i> Back
+</a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
